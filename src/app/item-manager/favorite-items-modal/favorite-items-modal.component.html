@@ -1,0 +1,38 @@
+<div class="active dimmer modals page transition ui">
+  <div class="ui standard test modal transition visible active" #modal>
+    <div class="header">
+      Favorite items
+    </div>
+    <ng-container *ngIf="items.length; else noItems">
+      <div class="ui icon input favorite-items-modal__search">
+        <input type="text" placeholder="Search..." (keyup)="onTextSearch($event)">
+        <i class="search icon"></i>
+      </div>
+      <div class="favorite-items-modal__item-container">
+        <ng-container *ngIf="itemsShown.length; else noItems">
+          <ng-container *ngFor="let item of itemsShown">
+            <div class="favorite-items-modal__item">
+              <img [src]="item.image" class="favorite-items-modal__item-img">
+              <div class="favorite-items-modal__item-description">
+                <div class="ui header">{{ item.title }}</div>
+                <div (click)="onDeleteFavItem(item)">
+                  <button class="ui icon button">
+                    <i class="trash alternate icon"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+    <ng-template #noItems>
+      <div class="favorite-items-modal__empty"> {{ getText() }}</div>
+    </ng-template>
+    <div class="actions">
+      <button class="ui primary button" (click)="onClose()">
+        Aceptar
+      </button>
+    </div>
+  </div>
+</div>

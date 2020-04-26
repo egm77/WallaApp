@@ -1,0 +1,8 @@
+{
+  "HEADER": {
+    "title": "Titulo",
+    "description": "Descripcion",
+    "price": "Precio",
+    "email": "Email"
+  }
+}

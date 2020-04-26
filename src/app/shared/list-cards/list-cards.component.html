@@ -1,0 +1,31 @@
+<div class="list-cards">
+  <div class="ui cards centered ">
+    <ng-container *ngFor="let item of items">
+      <div class="card">
+        <img [src]="item.image" class="list-cards__img">
+        <div class="content">
+          <div class="header">{{ item.title }}</div>
+          <div class="list-cards__description">
+            {{ item.description }}
+          </div>
+        </div>
+        <div class="extra content">
+          <div>
+            <a>{{ item.email }}</a>
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="right floated star" (click)="onFavClicked(item)">
+            <i class="star icon" [ngClass]="{'yellow': item.fav}" ></i>
+            Favorite
+          </span>
+          <span class="header">
+            <i class="dollar sign icon"></i>
+            {{ item.price }}
+          </span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+

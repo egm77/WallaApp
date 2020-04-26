@@ -1,0 +1,15 @@
+<div>
+  <div class="ui action input">
+    <select class="ui compact selection dropdown" [(ngModel)]="keySelected" (change)="onChangeKey()">
+      <option value="" hidden>Ordernar por</option>
+      <ng-container *ngFor="let key of keys">
+        <option [value]="key.id">{{key.text | translate}}</option>
+      </ng-container>
+    </select>
+    <div *ngIf="keySelected" class="ui compact primary icon button" (click)="onToggleDirection()">
+      <i [className]="direction === 'ASC' ? 'arrow icon up' : 'arrow  icon down'"></i>
+    </div>
+  </div>
+</div>
+
+

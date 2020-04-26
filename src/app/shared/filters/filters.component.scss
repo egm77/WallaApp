@@ -1,0 +1,23 @@
+.filters {
+  display: flex;
+  position: relative;
+
+  &__pills {
+    display: flex;
+    align-items: center;
+    :not(:last-child) {
+      padding-right: 8px;
+    }
+  }
+
+  &__selector {
+    position: absolute;
+    z-index: 100;
+    margin-left: 1px;
+    border: 1px solid #dcdddd;
+    border-radius: 8px;
+    top: 40px;
+    background-color: #ffffff;
+    padding: 8px;
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "configVersion": 1,
+  "timestamp": 1587926872419,
+  "index": "/wallapop-test/WallaApp/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/wallapop-test/WallaApp/3-es5.43a45715c8bf290d112d.js",
+        "/wallapop-test/WallaApp/4-es2015.3e43cb546da6140cf2ae.js",
+        "/wallapop-test/WallaApp/favicon.ico",
+        "/wallapop-test/WallaApp/index.html",
+        "/wallapop-test/WallaApp/main-es2015.6f5887cafaf46d412dd0.js",
+        "/wallapop-test/WallaApp/main-es5.281f5a73923174277468.js",
+        "/wallapop-test/WallaApp/polyfills-es2015.9c3f2c8c05f26e86793f.js",
+        "/wallapop-test/WallaApp/polyfills-es5.175e5155c14c50029182.js",
+        "/wallapop-test/WallaApp/runtime-es2015.3eaf9256008cb2700d7e.js",
+        "/wallapop-test/WallaApp/runtime-es5.4d76a35e1ea2990ebf3e.js",
+        "/wallapop-test/WallaApp/styles.09e2c710755c8867a460.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/wallapop-test/WallaApp/assets/i18n/es.json",
+        "/wallapop-test/WallaApp/assets/icons/icon-128x128.png",
+        "/wallapop-test/WallaApp/assets/icons/icon-144x144.png",
+        "/wallapop-test/WallaApp/assets/icons/icon-152x152.png",
+        "/wallapop-test/WallaApp/assets/icons/icon-192x192.png",
+        "/wallapop-test/WallaApp/assets/icons/icon-384x384.png",
+        "/wallapop-test/WallaApp/assets/icons/icon-512x512.png",
+        "/wallapop-test/WallaApp/assets/icons/icon-72x72.png",
+        "/wallapop-test/WallaApp/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/wallapop-test/WallaApp/3-es5.43a45715c8bf290d112d.js": "c6dfa7d011e166cf4191ee8e6488c3b1cd5a0288",
+    "/wallapop-test/WallaApp/4-es2015.3e43cb546da6140cf2ae.js": "dcefe5fd9139049a056c441abcc608fe35905d11",
+    "/wallapop-test/WallaApp/assets/i18n/es.json": "b99690ff92aebd4579a96825a876a7cbd462a1d5",
+    "/wallapop-test/WallaApp/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/wallapop-test/WallaApp/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/wallapop-test/WallaApp/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/wallapop-test/WallaApp/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/wallapop-test/WallaApp/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/wallapop-test/WallaApp/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/wallapop-test/WallaApp/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/wallapop-test/WallaApp/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/wallapop-test/WallaApp/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/wallapop-test/WallaApp/index.html": "0e439c502f14670b9a21878b13d16d566f0700b4",
+    "/wallapop-test/WallaApp/main-es2015.6f5887cafaf46d412dd0.js": "3b52fe4c8a002a2272449393d9f636ed2a1053db",
+    "/wallapop-test/WallaApp/main-es5.281f5a73923174277468.js": "b3538607e995ecc7f425e3040ebb104e50f1023b",
+    "/wallapop-test/WallaApp/polyfills-es2015.9c3f2c8c05f26e86793f.js": "e4be224553c5002677d7b21a2514f68bd4d9459d",
+    "/wallapop-test/WallaApp/polyfills-es5.175e5155c14c50029182.js": "f3ee8aaa8b27efbd1a763384ce913033604b1c0c",
+    "/wallapop-test/WallaApp/runtime-es2015.3eaf9256008cb2700d7e.js": "7dd7214c8fd94f859dbbdd042c02628b6e1884f3",
+    "/wallapop-test/WallaApp/runtime-es5.4d76a35e1ea2990ebf3e.js": "867f5d9369545d2b90a80a1214a9e2471414ea5c",
+    "/wallapop-test/WallaApp/styles.09e2c710755c8867a460.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

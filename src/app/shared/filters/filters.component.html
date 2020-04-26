@@ -1,0 +1,23 @@
+<div class="filters" #filterSelector>
+  <ng-container *ngIf="isAnyEnabled()">
+    <div class="filters__button">
+      <button (click)="onAddFilter()" class="ui primary button">
+        Añadir filtro
+      </button>
+    </div>
+  </ng-container>
+  <div class="filters__pills">
+    <ng-container *ngFor="let filterApplied of filtersApplied; let i = index">
+      <app-pill [primaryText]="getTranslateTag(filterApplied.type)" [secondaryText]="filterApplied.text"
+        (closeClick)="onDeleteAppliedFilter(i)">
+      </app-pill>
+    </ng-container>
+  </div>
+  <ng-container *ngIf="currentFilter">
+    <div class="filters__selector">
+      <app-filter [filtersAvailables]="filterAvailables" (filterDeleted)="onDeleteCurrentFilter()"
+        (filterSelected)="onApplyFilter($event)">
+      </app-filter>
+    </div>
+  </ng-container>
+</div>

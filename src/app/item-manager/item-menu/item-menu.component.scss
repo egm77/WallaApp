@@ -1,0 +1,24 @@
+.item-menu {
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__favorites {
+    &-counter {
+      width: 40px;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+
+  > * {
+    margin: 16px;
+  }
+
+  &__filters {
+    margin-left: auto;
+  }
+}

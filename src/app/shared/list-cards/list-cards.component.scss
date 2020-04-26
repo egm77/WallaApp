@@ -1,0 +1,12 @@
+.list-cards {
+
+  &__description {
+    height: 150px;
+  }
+
+  &__img {
+    width: 290px;
+    height: 250px;
+    object-fit: cover;
+  }
+}

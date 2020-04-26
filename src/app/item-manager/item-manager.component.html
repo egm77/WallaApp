@@ -1,0 +1,63 @@
+<div class="item-manager">
+  <ng-container *ngIf="!(isLoading$ | async); else loading">
+    <ng-container *ngIf="!errorMsg; else error">
+      <app-item-menu (filtersChanged)="onUpdateFilters($event)" (sortChanged)="onSortChanged($event)"
+        [direction]="direction" [keySelected]="keySelected" [filtersApplied]="filters"
+        (openFavoriteItems)="onShowFavoriteModal(true)" [favorites]="getFavoritesAmount()">
+      </app-item-menu>
+      <div class="item-manager__container">
+        <ng-container *ngIf="itemsPage && itemsPage[currentPage]; else noItems">
+          <app-list-cards [items]="itemsPage[currentPage]" (clickFav)="onToggleFav($event)">
+          </app-list-cards>
+          <div class="item-manager__pagination" *ngIf="pages > 1 ">
+            <app-pagination [pagesAmount]="pages" [pageSelected]="currentPage" (pageChanged)="onChangePage($event)">
+            </app-pagination>
+          </div>
+        </ng-container>
+        <ng-template #noItems>
+          <h2 class="ui header">
+            <i class="settings icon"></i>
+            <div class="content">
+              No se encontraron resultados
+              <div class="sub header">Intente cambiando los criterios de busqueda</div>
+            </div>
+          </h2>
+        </ng-template>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+
+
+<app-favorite-items-modal *ngIf="openFavoriteModal" (clickClose)="onShowFavoriteModal(false)"
+  (clickItem)="onToggleFav($event)" [items]="getFavoriteItems()">
+</app-favorite-items-modal>
+
+
+<ng-template #loading>
+  <div class="item-manager__loader">
+    <div class="ui active big centered inline loader"></div>
+  </div>
+</ng-template>
+
+<ng-template #error>
+  <div class="item-manager__error">
+
+    <div class="ui centered card">
+      <div class="content">
+        <div class="header">¡Ops!</div>
+        <div class="description">
+          {{ errorMsg }}
+        </div>
+      </div>
+      <div class="ui bottom attached button" (click)="getItems()">
+        <i class="refresh icon"></i>
+        Reintentar
+      </div>
+    </div>
+
+    <span>
+
+    </span>
+  </div>
+</ng-template>

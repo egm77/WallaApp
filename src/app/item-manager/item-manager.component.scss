@@ -1,0 +1,37 @@
+.item-manager {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+
+    &-pagination {
+      margin: 16px;
+    }
+  }
+
+  &__pagination {
+    margin-top: auto;
+    padding: 16px;
+  }
+
+  &__loader {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  &__error {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

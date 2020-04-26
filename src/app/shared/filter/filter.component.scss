@@ -1,0 +1,16 @@
+.filter__form {
+  display: flex;
+  flex-direction: column;
+
+  &-input {
+    margin-bottom: 8px;
+  }
+
+  &-options {
+    display: flex;
+
+    select {
+      margin-right: 8px;
+    }
+  }
+}
