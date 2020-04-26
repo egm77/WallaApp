@@ -1,10 +1,9 @@
-import { TranslateModule } from '@ngx-translate/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { FiltersComponent } from './filters.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 import { typeEnum } from 'src/app/item-manager/shared/models/item.model';
-import { type } from 'os';
+import { FiltersComponent } from './filters.component';
+
 
 describe('FiltersComponent', () => {
   let component: FiltersComponent;
@@ -96,8 +95,7 @@ describe('FiltersComponent', () => {
     expect(component.filtersApplied).toContain(filterSelected);
     expect(component.filtersUpdate.emit).toHaveBeenCalled();
     expect(component.filtersUpdate.emit).toHaveBeenCalledWith(component.filtersApplied);
-    // expect(component.filterAvailables).not.toContain(filterSelected.type);
-
+    expect(component.filterAvailables.find(filter => filter.id === filterSelected.type).disabled).toEqual(true);
   });
 
   it('should delete applied filter', () => {
@@ -124,7 +122,7 @@ describe('FiltersComponent', () => {
     component.filtersApplied = filtersApplied;
     const index = 0;
     component.onDeleteAppliedFilter(index);
-    // expect(component.filterAvailables).toContain('title');
+    expect(component.filterAvailables.find(filter => filter.id === filters[0].id).disabled).toEqual(false);
     expect(component.filtersUpdate.emit).toHaveBeenCalled();
     expect(component.filtersUpdate.emit).toHaveBeenCalledWith(component.filtersApplied);
     expect(component.filtersApplied).not.toContain(component.filtersApplied[index]);
