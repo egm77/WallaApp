@@ -1,11 +1,11 @@
 <div class="active dimmer modals page transition ui">
   <div class="ui standard test modal transition visible active" #modal>
     <div class="header">
-      Favorite items
+      {{ 'FAVORITES_MODAL.title' | translate}}
     </div>
     <ng-container *ngIf="items.length; else noItems">
       <div class="ui icon input favorite-items-modal__search">
-        <input type="text" placeholder="Search..." (keyup)="onTextSearch($event)">
+        <input type="text" [placeholder]="'FAVORITES_MODAL.search' | translate" (keyup)="onTextSearch($event)">
         <i class="search icon"></i>
       </div>
       <div class="favorite-items-modal__item-container">
@@ -27,11 +27,11 @@
       </div>
     </ng-container>
     <ng-template #noItems>
-      <div class="favorite-items-modal__empty"> {{ getText() }}</div>
+      <div class="favorite-items-modal__empty"> {{ getText() | translate }}</div>
     </ng-template>
     <div class="actions">
       <button class="ui primary button" (click)="onClose()">
-        Aceptar
+        {{ 'FAVORITES_MODAL.accept' | translate}}
       </button>
     </div>
   </div>

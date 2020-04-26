@@ -18,8 +18,8 @@
           <h2 class="ui header">
             <i class="settings icon"></i>
             <div class="content">
-              No se encontraron resultados
-              <div class="sub header">Intente cambiando los criterios de busqueda</div>
+             {{ 'NO_RESULTS.title' | translate}}
+              <div class="sub header">{{ 'NO_RESULTS.description' | translate}}</div>
             </div>
           </h2>
         </ng-template>
@@ -45,14 +45,14 @@
 
     <div class="ui centered card">
       <div class="content">
-        <div class="header">¡Ops!</div>
+        <div class="header">{{ 'ERROR.title' | translate }}</div>
         <div class="description">
-          {{ errorMsg }}
+          {{ errorMsg | translate }}
         </div>
       </div>
       <div class="ui bottom attached button" (click)="getItems()">
         <i class="refresh icon"></i>
-        Reintentar
+        {{ 'ERROR.retry' | translate }}
       </div>
     </div>
 

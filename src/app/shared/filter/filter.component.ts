@@ -20,7 +20,6 @@ export class FilterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.filtersAvailables)
   }
 
   onFilterSelected() {

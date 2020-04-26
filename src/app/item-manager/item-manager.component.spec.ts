@@ -10,6 +10,7 @@ import { ItemManagerComponent } from './item-manager.component';
 import { ItemService } from './shared/services/item.service';
 import { FilterService } from './shared/services/filter.service';
 import { typeEnum } from './shared/models/item.model';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 describe('ItemManagerComponent', () => {
@@ -31,13 +32,14 @@ describe('ItemManagerComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ItemManagerComponent],
       schemas: [NO_ERRORS_SCHEMA],
+      imports: [TranslateModule.forRoot()],
       providers: [
         { provide: ItemService, useValue: spyItemService },
         { provide: SortService, useValue: spySortService },
         { provide: FilterService, useValue: spyFilterService },
         { provide: PaginationService, useValue: spyPaginationService },
         { provide: ActivatedRoute, useClass: ActivatedRouteStub },
-        { provide: Router, useValue: spyRouter }
+        { provide: Router, useValue: spyRouter },
       ]
     })
       .compileComponents();
@@ -281,8 +283,6 @@ describe('ItemManagerComponent', () => {
     };
 
     activatedRoute.testQueryParamMap = sort;
-
-    console.log(activatedRoute.testQueryParamMap);
 
     component.getSortFromParams();
     expect(component.keySelected).toEqual(sort.keySelected);

@@ -4,5 +4,36 @@
     "description": "Descripcion",
     "price": "Precio",
     "email": "Email"
+  },
+  "ERROR": {
+    "default": "Ha ocorrido un error, por favor vuelva a intentarlo",
+    "retry": "Reintentar",
+    "title": "¡Ups!"
+  },
+  "NO_RESULTS": {
+    "title": "No se encontraron resultados",
+    "description": "Intente cambiando los criterios de busqueda"
+  },
+  "FAVORITES_MODAL" : {
+    "title": "Items favoritos",
+    "accept": "Aceptar",
+    "no_favorites": "No hay favoritos",
+    "no_items_filtered": "No hay elementos que coincidan con la busqueda",
+    "error": "Error",
+    "search": "Buscar..."
+  },
+  "MENU": {
+    "favorites": "Favoritos"
+  },
+  "FILTERS": {
+    "add_filters": "Añadir filtro",
+    "filter": "Filtro",
+    "placeholder": "Filtrar..."
+  },
+  "ITEM": {
+    "favorite": "Favorito"
+  },
+  "SORT_ITEMS": {
+    "order_by": "Ordernar por..."
   }
 }

@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --aot=true",
+    "build": "ng build --prod --aot=true --output-path docs --base-href /WallaApp/",
     "test": "ng test --codeCoverage=true",
     "lint": "ng lint",
     "e2e": "ng e2e"

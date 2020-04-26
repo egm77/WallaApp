@@ -60,7 +60,7 @@ export class ItemManagerComponent implements OnInit {
             this.errorMsg = null;
           },
           error: (err: HttpErrorResponse) => {
-            this.errorMsg = 'Ha ocorrido un error, por favor vuelva a intentarlo';
+            this.errorMsg = 'ERROR.DEFAULT';
           }
         }
       );
@@ -137,7 +137,6 @@ export class ItemManagerComponent implements OnInit {
   setPages(): void {
     const itemsPage = this.pagination.getItemsbyPage(this.filteredItems, this.maxItemsToShow);
     this.itemsPage = itemsPage;
-    console.log(itemsPage);
     this.pages = Object.keys(itemsPage).length;
   }
 

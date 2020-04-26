@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core
 
 import { FavoriteItemsModalComponent } from './favorite-items-modal.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('FavoriteItemsModalComponent', () => {
   let component: FavoriteItemsModalComponent;
@@ -10,7 +11,8 @@ describe('FavoriteItemsModalComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [FavoriteItemsModalComponent],
-      schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [TranslateModule.forRoot()],
     })
       .compileComponents();
   }));
@@ -119,7 +121,7 @@ describe('FavoriteItemsModalComponent', () => {
 
   it('should show empty text', () => {
     component.items = [];
-    expect(component.getText()).toEqual('NO HAY FAVORITOS');
+    expect(component.getText()).toEqual('FAVORITES_MODAL.no_favorites');
   });
 
   it('should show no items found', () => {
@@ -132,7 +134,7 @@ describe('FavoriteItemsModalComponent', () => {
       fav: true
     }];
     component.itemsShown = [];
-    expect(component.getText()).toEqual('NO SE ENCUENTRAN ELEMENTOS CON EL FILTRO ESTE');
+    expect(component.getText()).toEqual('FAVORITES_MODAL.no_items_filtered');
   });
 
   it('should show error', () => {
@@ -146,7 +148,7 @@ describe('FavoriteItemsModalComponent', () => {
     }];
     component.items = mockItems;
     component.itemsShown = mockItems;
-    expect(component.getText()).toEqual('Error');
+    expect(component.getText()).toEqual('FAVORITES_MODAL.error');
   });
 
 });

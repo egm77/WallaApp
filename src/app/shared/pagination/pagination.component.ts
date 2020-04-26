@@ -12,13 +12,12 @@ export class PaginationComponent implements OnInit {
   @Input() pagesAmount: number;
   @Output() pageChanged = new EventEmitter();
 
-  arrayPages: any[]
+  arrayPages: any[];
 
   constructor() { }
 
   ngOnInit() {
     this.arrayPages = _.range(1, (this.pagesAmount + 1));
-    console.log('test', this.arrayPages, this.pagesAmount);
   }
 
   onChangePage(page: number) {

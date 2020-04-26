@@ -1,10 +1,10 @@
 <form class="filter__form" [formGroup]="filterForm">
   <div class="ui input focus filter__form-input">
-    <input type="text" placeholder="Search..." formControlName="text">
+    <input type="text" [placeholder]="'FILTERS.placeholder' | translate" formControlName="text">
   </div>
   <div class="filter__form-options">
     <select class="ui compact selection dropdown" formControlName="type">
-      <option value="" hidden>Filter</option>
+      <option value="" hidden>{{ 'FILTERS.filter' | translate}}</option>
       <ng-container *ngFor="let filter of filtersAvailables">
         <ng-container *ngIf="!filter.disabled">
           <option [value]="filter.id">{{filter.text | translate }}</option>

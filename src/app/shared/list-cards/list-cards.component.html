@@ -17,7 +17,7 @@
         <div class="extra content">
           <span class="right floated star" (click)="onFavClicked(item)">
             <i class="star icon" [ngClass]="{'yellow': item.fav}" ></i>
-            Favorite
+            {{ 'ITEM.favorite' | translate}}
           </span>
           <span class="header">
             <i class="dollar sign icon"></i>

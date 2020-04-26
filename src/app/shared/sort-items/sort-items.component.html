@@ -1,7 +1,7 @@
 <div>
   <div class="ui action input">
     <select class="ui compact selection dropdown" [(ngModel)]="keySelected" (change)="onChangeKey()">
-      <option value="" hidden>Ordernar por</option>
+      <option value="" hidden>{{ 'SORT_ITEMS.order_by' | translate}}</option>
       <ng-container *ngFor="let key of keys">
         <option [value]="key.id">{{key.text | translate}}</option>
       </ng-container>
