@@ -1,3 +1,4 @@
+import { typeEnum } from 'src/app/item-manager/shared/models/item.model';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FilterComponent } from './filter.component';
@@ -10,17 +11,16 @@ describe('FilterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FilterComponent ],
+      declarations: [FilterComponent],
       schemas: [NO_ERRORS_SCHEMA],
       imports: [TranslateModule.forRoot()]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FilterComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should emit filter', () => {
@@ -35,5 +35,47 @@ describe('FilterComponent', () => {
     component.onFilterDeleted();
     expect(component.filterDeleted.emit).toHaveBeenCalled();
     expect(component.filterDeleted.emit).toHaveBeenCalledWith();
+  });
+
+  it('should set type value', () => {
+    component.filterForm.controls.type.setValue(typeEnum.description);
+    component.onChangeKey(typeEnum.title);
+    expect(component.filterForm.controls.type.value).toEqual(typeEnum.title);
+  });
+
+  it('should get filters avaliables', () => {
+    const filters = [{
+      id: typeEnum.title,
+      text: 'HEADER.title',
+      disabled: true
+    },
+    {
+      id: typeEnum.description,
+      text: 'HEADER.description'
+    },
+    {
+      id: typeEnum.price,
+      text: 'HEADER.price'
+    },
+    {
+      id: typeEnum.email,
+      text: 'HEADER.email'
+    }];
+
+    const expected = [{
+      id: typeEnum.description,
+      text: 'HEADER.description'
+    },
+    {
+      id: typeEnum.price,
+      text: 'HEADER.price'
+    },
+    {
+      id: typeEnum.email,
+      text: 'HEADER.email'
+    }];
+
+    component.filtersAvailables = filters;
+    expect(component.getFilterAvailables()).toEqual(expected);
   });
 });

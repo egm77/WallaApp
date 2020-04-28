@@ -1,57 +1,48 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { typeEnum } from '../shared/models/item.model';
+import { actionsEnum } from './../shared/constants/actions.constants';
+import { orderEnum } from '../shared/services/sort.service';
+import { SelectedFilter, Filter } from '../shared/services/filter.service';
 
 @Component({
   selector: 'app-item-menu',
   templateUrl: './item-menu.component.html',
   styleUrls: ['./item-menu.component.scss']
 })
-export class ItemMenuComponent implements OnInit {
+export class ItemMenuComponent {
 
   @Output() filtersChanged = new EventEmitter();
   @Output() openFavoriteItems = new EventEmitter();
   @Output() sortChanged = new EventEmitter();
-  @Input() favorites = 0
-  @Input() keySelected
-  @Input() direction
-  @Input() filtersApplied
+  @Output() action = new EventEmitter();
+  @Input() favorites = 0;
+  @Input() keySelected: typeEnum;
+  @Input() direction: orderEnum;
+  @Input() filtersApplied: SelectedFilter[];
 
-  constructor() { }
+  actionsEnum = actionsEnum;
 
-  filters = ['title', 'description', 'price', 'email' ]
-
-  keys = [
+  keys: Filter[] = [
     {
       id: typeEnum.title,
-      text : 'HEADER.title'
+      text: 'HEADER.title'
     },
     {
       id: typeEnum.description,
-      text : 'HEADER.description'
+      text: 'HEADER.description'
     },
     {
       id: typeEnum.price,
-      text : 'HEADER.price'
+      text: 'HEADER.price'
     },
     {
       id: typeEnum.email,
-      text : 'HEADER.email'
+      text: 'HEADER.email'
     }
   ];
 
-  ngOnInit() {
-  }
-
-  onOpenFavorites() {
-    this.openFavoriteItems.emit();
-  }
-
-  onApplyFilters(filters) {
-    this.filtersChanged.emit(filters);
-  }
-
-  onSortChanged(sort) {
-    this.sortChanged.emit(sort)
+  onAction(action: actionsEnum, data?: any) {
+    this.action.emit({ action, data });
   }
 
 }

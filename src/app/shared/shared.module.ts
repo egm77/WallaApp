@@ -8,12 +8,13 @@ import { ListCardsComponent } from './list-cards/list-cards.component';
 import { SortItemsComponent } from './sort-items/sort-items.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 
 
 @NgModule({
   declarations: [
-    FiltersComponent, FilterComponent, PillComponent, ListCardsComponent, SortItemsComponent, PaginationComponent],
+    FiltersComponent, FilterComponent, PillComponent, ListCardsComponent, SortItemsComponent, PaginationComponent, DropdownComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

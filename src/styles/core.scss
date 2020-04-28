@@ -1,0 +1,11 @@
+@import "./variables.scss";
+
+@mixin card(
+    $border-radius: $border-radius,
+    $border: $border-card,
+    $background-color: $color-card-background
+) {
+    border-radius: $border-radius;
+    border: $border;
+    background-color: $background-color;
+}

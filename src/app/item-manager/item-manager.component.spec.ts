@@ -1,4 +1,4 @@
-import { SortService, sortDirecction } from './shared/services/sort.service';
+import { SortService, orderEnum } from './shared/services/sort.service';
 import { PaginationService } from './shared/services/pagination.service';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed, getTestBed } from '@angular/core/testing';
@@ -11,6 +11,7 @@ import { ItemService } from './shared/services/item.service';
 import { FilterService } from './shared/services/filter.service';
 import { typeEnum } from './shared/models/item.model';
 import { TranslateModule } from '@ngx-translate/core';
+import { actionsEnum } from './shared/constants/actions.constants';
 
 
 describe('ItemManagerComponent', () => {
@@ -27,7 +28,7 @@ describe('ItemManagerComponent', () => {
     const spyItemService = jasmine.createSpyObj('ItemService', ['getItems']);
     const spyFilterService = jasmine.createSpyObj('FilterService', ['getFilteredDate']);
     const spyPaginationService = jasmine.createSpyObj('PaginationService', ['getItemsbyPage']);
-    const spySortService = jasmine.createSpyObj('PaginationService', ['orderBy']);
+    const spySortService = jasmine.createSpyObj('PaginationService', ['sortBy']);
     const spyRouter = jasmine.createSpyObj('Router', ['navigate']);
     TestBed.configureTestingModule({
       declarations: [ItemManagerComponent],
@@ -196,7 +197,7 @@ describe('ItemManagerComponent', () => {
     spyOn(component, 'setPages');
     const sort = {
       keySelected: 'title',
-      direction: sortDirecction.DESC
+      direction: orderEnum.DESC
     }
     const mockItemsSorted = [
       {
@@ -207,10 +208,10 @@ describe('ItemManagerComponent', () => {
         image: 'https://webpublic.s3-eu-west-1.amazonaws.com/tech-test/img/iphone.png'
       }
     ];
-    sortService.orderBy.and.returnValue(mockItemsSorted);
+    sortService.sortBy.and.returnValue(mockItemsSorted);
     component.onSortChanged(sort);
     expect(component.setPages).toHaveBeenCalled();
-    expect(sortService.orderBy).toHaveBeenCalled();
+    expect(sortService.sortBy).toHaveBeenCalled();
     expect(router.navigate.calls.mostRecent().args[1].queryParams).toEqual(sort);
   });
 
@@ -279,7 +280,7 @@ describe('ItemManagerComponent', () => {
     spyOn(component, 'onSortChanged');
     const sort = {
       keySelected: 'title',
-      direction: sortDirecction.DESC
+      direction: orderEnum.DESC
     };
 
     activatedRoute.testQueryParamMap = sort;
@@ -289,6 +290,26 @@ describe('ItemManagerComponent', () => {
     expect(component.direction).toEqual(sort.direction);
     expect(component.onSortChanged).toHaveBeenCalled();
   });
+
+  it('should call sort change', () => {
+    spyOn(component, 'onSortChanged');
+    component.onAction({action: actionsEnum.sort, data: 'test'});
+    expect(component.onSortChanged).toHaveBeenCalled();
+  });
+
+  it('should call favorite modal', () => {
+    spyOn(component, 'onShowFavoriteModal');
+    component.onAction({action: actionsEnum.favorites, data: null});
+    expect(component.onShowFavoriteModal).toHaveBeenCalled();
+  });
+
+
+  it('should call filter change', () => {
+    spyOn(component, 'onUpdateFilters');
+    component.onAction({action: actionsEnum.filter, data: 'test'});
+    expect(component.onUpdateFilters).toHaveBeenCalled();
+  });
+
 
   it('should sort by params', () => {
     spyOn(component, 'onSortChanged');

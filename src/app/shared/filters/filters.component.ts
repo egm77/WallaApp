@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { typeEnum } from 'src/app/item-manager/shared/models/item.model';
+import { Filter, SelectedFilter } from 'src/app/item-manager/shared/services/filter.service';
 
 @Component({
   selector: 'app-filters',
@@ -8,12 +9,12 @@ import { typeEnum } from 'src/app/item-manager/shared/models/item.model';
 })
 export class FiltersComponent implements OnInit {
 
-  @Input() filters: { text: string, id: typeEnum }[];
-  @Input() filtersApplied = [];
+  @Input() filters: Filter[];
+  @Input() filtersApplied: SelectedFilter[] = [];
   @Output() filtersUpdate = new EventEmitter();
 
-  filterAvailables: { text: string, id: typeEnum, disabled?: boolean }[];
-  currentFilter: { text?: string, type?: typeEnum };
+  filterAvailables: Filter[];
+  currentFilter: SelectedFilter;
 
   @ViewChild('filterSelector', { static: false }) filterSelector: ElementRef;
 
@@ -26,22 +27,22 @@ export class FiltersComponent implements OnInit {
     }
   }
 
-  onAddFilter() {
+  onAddFilter(): void {
     this.currentFilter = this.currentFilter ? null : {};
   }
 
-  isAnyEnabled() {
+  isAnyEnabled(): boolean {
     return (this.filterAvailables.find(filter => !filter.disabled) != null);
   }
 
-  onApplyFilter(filter) {
+  onApplyFilter(filter: SelectedFilter): void {
     this.filtersApplied.push(filter);
     this.currentFilter = null;
     this.filterAvailables.find(filterAvailables => filterAvailables.id === filter.type).disabled = true;
     this.filtersUpdate.emit(this.filtersApplied);
   }
 
-  onDeleteCurrentFilter() {
+  onDeleteCurrentFilter(): void {
     this.currentFilter = null;
   }
 
@@ -49,20 +50,9 @@ export class FiltersComponent implements OnInit {
     return this.filterAvailables.find(filterAvailable => filterAvailable.id === type).text;
   }
 
-  onDeleteAppliedFilter(index: number) {
+  onDeleteAppliedFilter(index: number): void {
     this.filterAvailables.find(filterAvailables => filterAvailables.id === this.filtersApplied[index].type).disabled = false;
     this.filtersApplied.splice(index, 1);
     this.filtersUpdate.emit(this.filtersApplied);
-  }
-
-  @HostListener('document:click', ['$event.target'])
-  public onClick(targetElement: ElementRef) {
-    if (this.filterSelector) {
-      const clickedTypeInside = this.filterSelector.nativeElement.contains(targetElement);
-      if (!clickedTypeInside) {
-        this.onDeleteCurrentFilter();
-      }
-
-    }
   }
 }

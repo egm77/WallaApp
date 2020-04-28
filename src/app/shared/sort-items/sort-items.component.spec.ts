@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SortItemsComponent } from './sort-items.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { sortDirecction } from 'src/app/item-manager/shared/services/sort.service';
+import { orderEnum } from 'src/app/item-manager/shared/services/sort.service';
 import { TranslateModule } from '@ngx-translate/core';
 
 describe('SortItemsComponent', () => {
@@ -38,19 +38,22 @@ describe('SortItemsComponent', () => {
 
   it('should emit change key', () => {
     const keySelected = typeEnum.title;
-    const direction = sortDirecction.ASC;
+    const direction = orderEnum.ASC;
     component.keySelected = keySelected;
+    const keyExpected = typeEnum.description;
+
     spyOn(component.sortChanged, 'emit');
-    component.onChangeKey();
+    component.onChangeKey(keyExpected);
     expect(component.direction).toEqual(direction);
+    expect(component.keySelected).toEqual(keyExpected);
     expect(component.sortChanged.emit).toHaveBeenCalled();
-    expect(component.sortChanged.emit).toHaveBeenCalledWith({keySelected, direction});
+    expect(component.sortChanged.emit).toHaveBeenCalledWith({keySelected: keyExpected, direction});
   });
 
   it('should emit change direction DESC', () => {
     const keySelected = typeEnum.title;
-    const direction = sortDirecction.ASC;
-    const expected = sortDirecction.DESC;
+    const direction = orderEnum.ASC;
+    const expected = orderEnum.DESC;
     component.keySelected = keySelected;
     component.direction = direction;
     spyOn(component.sortChanged, 'emit');
@@ -62,8 +65,8 @@ describe('SortItemsComponent', () => {
 
   it('should emit change direction ASC', () => {
     const keySelected = typeEnum.title;
-    const direction = sortDirecction.DESC;
-    const expected = sortDirecction.ASC;
+    const direction = orderEnum.DESC;
+    const expected = orderEnum.ASC;
     component.keySelected = keySelected;
     component.direction = direction;
     spyOn(component.sortChanged, 'emit');

@@ -1,7 +1,7 @@
 import { typeEnum } from 'src/app/item-manager/shared/models/item.model';
 import { TestBed } from '@angular/core/testing';
 
-import { SortService, sortDirecction } from './sort.service';
+import { SortService, orderEnum } from './sort.service';
 
 describe('SortService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
@@ -73,10 +73,10 @@ describe('SortService', () => {
 
     const order = {
       keySelected: 'title',
-      direction: sortDirecction.ASC
+      direction: orderEnum.ASC
     }
 
-    const result = service.orderBy(items, order);
+    const result = service.sortBy(items, order);
 
     expect(result).toEqual(expected);
   });
@@ -148,10 +148,10 @@ describe('SortService', () => {
 
     const order = {
       keySelected: 'title',
-      direction: sortDirecction.DESC
+      direction: orderEnum.DESC
     }
 
-    const result = service.orderBy(items, order);
+    const result = service.sortBy(items, order);
 
     expect(result).toEqual(expected);
   });
@@ -223,10 +223,10 @@ describe('SortService', () => {
 
     const order = {
       keySelected: typeEnum.price,
-      direction: sortDirecction.ASC
+      direction: orderEnum.ASC
     }
 
-    const result = service.orderBy(items, order);
+    const result = service.sortBy(items, order);
 
     expect(result).toEqual(expected);
   });
@@ -298,10 +298,10 @@ describe('SortService', () => {
 
     const order = {
       keySelected: typeEnum.price,
-      direction: sortDirecction.DESC
+      direction: orderEnum.DESC
     }
 
-    const result = service.orderBy(items, order);
+    const result = service.sortBy(items, order);
 
     expect(result).toEqual(expected);
   });
@@ -315,10 +315,10 @@ describe('SortService', () => {
 
     const order = {
       keySelected: typeEnum.price,
-      direction: sortDirecction.DESC
+      direction: orderEnum.DESC
     }
 
-    const result = service.orderBy(items, order);
+    const result = service.sortBy(items, order);
 
     expect(result).toEqual(expected);
   });

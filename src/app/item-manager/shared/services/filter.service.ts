@@ -1,5 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Item } from '../models/item.model';
+import { Item, typeEnum } from '../models/item.model';
+
+export interface Filter {
+  text: string;
+  id: typeEnum;
+  disabled?: boolean;
+}
+
+export interface SelectedFilter {
+  text?: string;
+  type?: typeEnum;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +20,7 @@ export class FilterService {
 
   constructor() { }
 
-  isMatch(item: Item, filters) {
+  isMatch(item: Item, filters: SelectedFilter[]): boolean {
     let match = true;
     filters.forEach(
       filter => {
@@ -21,7 +32,7 @@ export class FilterService {
     return match;
   }
 
-  getFilteredDate(items, filters) {
+  getFilteredDate(items: Item[], filters: SelectedFilter[]): Item[] {
     return items.filter(
       item => this.isMatch(item, filters)
     );

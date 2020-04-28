@@ -1,12 +1,13 @@
-import { FilterService } from './shared/services/filter.service';
+import { actionsEnum } from './shared/constants/actions.constants';
+import { FilterService, SelectedFilter } from './shared/services/filter.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { Item, typeEnum } from './shared/models/item.model';
 import { ItemService } from './shared/services/item.service';
-import { PaginationService } from './shared/services/pagination.service';
-import { SortService, Sort, sortDirecction } from './shared/services/sort.service';
+import { PaginationService, IitemsPerPage } from './shared/services/pagination.service';
+import { SortService, Sort, orderEnum } from './shared/services/sort.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -24,12 +25,19 @@ export class ItemManagerComponent implements OnInit {
   openFavoriteModal = false;
   pages: number;
   maxItemsToShow = 5;
-  itemsPage;
+  itemsPage: IitemsPerPage;
   currentPage = this.defaultPage;
-  direction: sortDirecction;
+  direction: orderEnum;
   keySelected: typeEnum;
-  filters: { text: string, type: typeEnum }[];
+  filters: SelectedFilter[];
   errorMsg: string;
+
+
+  actions = {
+    [actionsEnum.sort]: (event: Sort) => this.onSortChanged(event),
+    [actionsEnum.favorites]: () => this.onShowFavoriteModal(true),
+    [actionsEnum.filter]: (event: SelectedFilter[]) => this.onUpdateFilters(event)
+  };
 
   constructor(
     private itemService: ItemService,
@@ -45,7 +53,7 @@ export class ItemManagerComponent implements OnInit {
     this.getItems();
   }
 
-  getItems() {
+  getItems(): void {
     this.isLoading$.next(true);
     this.itemService
       .getItems()
@@ -66,7 +74,7 @@ export class ItemManagerComponent implements OnInit {
       );
   }
 
-  initItems() {
+  initItems(): void {
     const filters = this.getFiltersFromParams();
     if (filters) {
       this.onUpdateFilters(filters);
@@ -75,7 +83,7 @@ export class ItemManagerComponent implements OnInit {
     }
   }
 
-  getFiltersFromParams(): any {
+  getFiltersFromParams(): SelectedFilter[] {
     const paramsFilters = this.route.snapshot.queryParamMap.get('filter');
     if (!paramsFilters) { return null; }
     this.filters = JSON.parse(paramsFilters);
@@ -85,16 +93,16 @@ export class ItemManagerComponent implements OnInit {
     }
   }
 
-  getSortFromParams() {
+  getSortFromParams(): void {
     this.keySelected = this.route.snapshot.queryParamMap.get('keySelected') as typeEnum;
-    this.direction = this.route.snapshot.queryParamMap.get('direction') as sortDirecction;
+    this.direction = this.route.snapshot.queryParamMap.get('direction') as orderEnum;
 
     if (this.keySelected && this.direction) {
       this.onSortChanged({ keySelected: this.keySelected, direction: this.direction });
     }
   }
 
-  onUpdateFilters(filters) {
+  onUpdateFilters(filters: SelectedFilter[]): void {
     if (filters.length) {
       this.filteredItems = this.filter.getFilteredDate(this.items, filters)
       this.setUrlFilters(JSON.stringify(filters));
@@ -105,7 +113,7 @@ export class ItemManagerComponent implements OnInit {
     this.updatePages();
   }
 
-  setUrlFilters(filter) {
+  setUrlFilters(filter: string): void {
     this.router.navigate(
       [],
       {
@@ -115,8 +123,11 @@ export class ItemManagerComponent implements OnInit {
       });
   }
 
+  onAction(event: { action: actionsEnum, data: any }) {
+    return this.actions[event.action](event.data);
+  }
 
-  onToggleFav(item: Item) {
+  onToggleFav(item: Item): void {
     const itemClicked = this.items.find((i) => i === item);
     itemClicked.fav = !itemClicked.fav;
   }
@@ -129,7 +140,7 @@ export class ItemManagerComponent implements OnInit {
     return this.getFavoriteItems().length;
   }
 
-  updatePages() {
+  updatePages(): void {
     this.setPages();
     this.currentPage = this.defaultPage;
   }
@@ -140,12 +151,12 @@ export class ItemManagerComponent implements OnInit {
     this.pages = Object.keys(itemsPage).length;
   }
 
-  onChangePage(page: number) {
+  onChangePage(page: number): void {
     this.currentPage = page;
   }
 
 
-  onSortChanged(sort: Sort) {
+  onSortChanged(sort: Sort): void {
     this.router.navigate(
       [],
       {
@@ -154,7 +165,7 @@ export class ItemManagerComponent implements OnInit {
         queryParamsHandling: 'merge',
       });
 
-    this.filteredItems = this.sort.orderBy(this.filteredItems, sort);
+    this.filteredItems = this.sort.sortBy(this.filteredItems, sort);
     this.setPages();
   }
 

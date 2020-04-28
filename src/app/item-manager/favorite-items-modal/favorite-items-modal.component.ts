@@ -12,20 +12,17 @@ export class FavoriteItemsModalComponent implements OnInit {
   @Output() clickClose = new EventEmitter();
   @Output() clickItem = new EventEmitter();
   itemsShown: Item[];
-  /*   @Output() clickClose = new EventEmitter();
-   */
-  constructor() { }
   timeout: any = null;
 
   ngOnInit() {
     this.itemsShown = this.items;
   }
 
-  onClose() {
+  onClose(): void {
     this.clickClose.emit();
   }
 
-  onDeleteFavItem(deleteFav) {
+  onDeleteFavItem(deleteFav: Item): void {
     this.clickItem.emit(deleteFav);
     this.items = this.items.filter(
       item => item !== deleteFav
@@ -34,14 +31,14 @@ export class FavoriteItemsModalComponent implements OnInit {
 
   }
 
-  onTextSearch(event) {
+  onTextSearch(event: any): void {
     clearTimeout(this.timeout);
     this.timeout = setTimeout(() => {
       this.filterItems(event.target.value);
     }, 250);
   }
 
-  filterItems(text: string) {
+  filterItems(text: string): void {
     if (text !== '') {
       this.itemsShown = this.items.filter(item => item.title.toUpperCase().includes(text.toUpperCase()));
     } else {
@@ -49,7 +46,7 @@ export class FavoriteItemsModalComponent implements OnInit {
     }
   }
 
-  getText() {
+  getText(): string {
     if (this.items.length === 0) { return 'FAVORITES_MODAL.no_favorites'; }
     if (this.itemsShown.length === 0) { return 'FAVORITES_MODAL.no_items_filtered'; }
     return 'FAVORITES_MODAL.error';

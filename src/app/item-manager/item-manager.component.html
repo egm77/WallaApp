@@ -1,9 +1,8 @@
 <div class="item-manager">
   <ng-container *ngIf="!(isLoading$ | async); else loading">
     <ng-container *ngIf="!errorMsg; else error">
-      <app-item-menu (filtersChanged)="onUpdateFilters($event)" (sortChanged)="onSortChanged($event)"
-        [direction]="direction" [keySelected]="keySelected" [filtersApplied]="filters"
-        (openFavoriteItems)="onShowFavoriteModal(true)" [favorites]="getFavoritesAmount()">
+      <app-item-menu (action)="onAction($event)" [direction]="direction" [keySelected]="keySelected"
+        [filtersApplied]="filters" [favorites]="getFavoritesAmount()">
       </app-item-menu>
       <div class="item-manager__container">
         <ng-container *ngIf="itemsPage && itemsPage[currentPage]; else noItems">
@@ -18,7 +17,7 @@
           <h2 class="ui header">
             <i class="settings icon"></i>
             <div class="content">
-             {{ 'NO_RESULTS.title' | translate}}
+              {{ 'NO_RESULTS.title' | translate}}
               <div class="sub header">{{ 'NO_RESULTS.description' | translate}}</div>
             </div>
           </h2>

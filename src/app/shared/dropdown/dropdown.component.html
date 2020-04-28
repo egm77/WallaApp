@@ -1,0 +1,17 @@
+<div class="dropdown" #toggleButton>
+  <div class="ui input">
+    <input [value]="getSelectedTag() | translate" (click)="toggle()" class="dropdown-toggle" type="text"
+      [placeholder]="placeholder | translate" readonly />
+  </div>
+  <div class="dropdown-show" *ngIf="isOpen">
+    <div class="drop-show__items">
+      <ng-container *ngFor="let item of items">
+        <div class="dropdown-show__item" (click)="onSelect(item)">
+          <span>
+            {{ item.text | translate }}
+          </span>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

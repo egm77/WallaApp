@@ -1,3 +1,4 @@
+import { typeEnum } from 'src/app/item-manager/shared/models/item.model';
 import { TestBed } from '@angular/core/testing';
 
 import { FilterService } from './filter.service';
@@ -23,7 +24,7 @@ describe('FilterService', () => {
       image: 'https://webpublic.s3-eu-west-1.amazonaws.com/tech-test/img/camera.png'
     }];
 
-    const filters = [{ text: 'Pola', type: 'title' }];
+    const filters = [{ text: 'Pola', type: typeEnum.title }];
 
 
     const expected = [{
