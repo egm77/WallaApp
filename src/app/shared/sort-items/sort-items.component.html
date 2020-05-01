@@ -1,12 +1,11 @@
 <div class="sort-items">
-  <div class="ui action input">
-    <app-dropdown [items]='keys' (selectItem)="onChangeKey($event)" [defaultValue]="keySelected" [placeholder]="'SORT_ITEMS.order_by'">
-    </app-dropdown>
-    <ng-container *ngIf="keySelected">
-      <button class="ui icon button" (click)="onToggleDirection()">
-        <i [className]="direction === 'ASC' ? 'arrow icon up' : 'arrow  icon down'"></i>
-      </button>
-    </ng-container>
-  </div>
+  <app-dropdown [items]='keys' (selectItem)="onChangeKey($event)" [defaultValue]="keySelected"
+    [placeholder]="'SORT_ITEMS.order_by'">
+  </app-dropdown>
+  <ng-container *ngIf="keySelected">
+    <button class="btn" (click)="onToggleDirection()">
+      <i class="material-icons">{{ direction === 'ASC' ? 'arrow_drop_up' : 'arrow_drop_down' }}</i>
+    </button>
+  </ng-container>
 </div>
 <div>

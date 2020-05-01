@@ -24,10 +24,18 @@ export class FilterService {
     let match = true;
     filters.forEach(
       filter => {
-        if (!item[filter.type].toUpperCase().includes(filter.text.toUpperCase())) {
-          match = false;
-          return;
+        if (typeof item[filter.type] === 'string') {
+          if (!item[filter.type].toUpperCase().includes(filter.text.toUpperCase())) {
+            match = false;
+            return;
+          }
+        } else {
+          if (item[filter.type] !== parseInt(filter.text, 10)) {
+            match = false;
+            return;
+          }
         }
+
       });
     return match;
   }

@@ -1,19 +1,23 @@
 <div class="item-manager">
   <ng-container *ngIf="!(isLoading$ | async); else loading">
     <ng-container *ngIf="!errorMsg; else error">
-      <app-item-menu (action)="onAction($event)" [direction]="direction" [keySelected]="keySelected"
-        [filtersApplied]="filters" [favorites]="getFavoritesAmount()">
-      </app-item-menu>
+      <div>
+        <app-item-menu (action)="onAction($event)" [direction]="direction" [keySelected]="keySelected"
+          [filtersApplied]="filters" [favorites]="getFavoritesAmount()">
+        </app-item-menu>
+      </div>
       <div class="item-manager__container">
         <ng-container *ngIf="itemsPage && itemsPage[currentPage]; else noItems">
-          <app-list-cards [items]="itemsPage[currentPage]" (clickFav)="onToggleFav($event)">
+          <app-list-cards class="item" [items]="itemsPage[currentPage]" (clickFav)="onToggleFav($event)">
           </app-list-cards>
           <div class="item-manager__pagination" *ngIf="pages > 1 ">
             <app-pagination [pagesAmount]="pages" [pageSelected]="currentPage" (pageChanged)="onChangePage($event)">
             </app-pagination>
           </div>
         </ng-container>
-        <ng-template #noItems>
+      </div>
+      <ng-template #noItems>
+        <div class="item-manager__no-items">
           <h2 class="ui header">
             <i class="settings icon"></i>
             <div class="content">
@@ -21,8 +25,8 @@
               <div class="sub header">{{ 'NO_RESULTS.description' | translate}}</div>
             </div>
           </h2>
-        </ng-template>
-      </div>
+        </div>
+      </ng-template>
     </ng-container>
   </ng-container>
 </div>

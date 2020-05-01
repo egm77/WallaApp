@@ -1,13 +1,14 @@
+@import "src/styles/core.scss";
+
 .filters {
   display: flex;
   position: relative;
+  align-items: center;
 
   &__pills {
     display: flex;
     align-items: center;
-    :not(:last-child) {
-      padding-right: 8px;
-    }
+    flex-wrap: wrap;
   }
 
   &__selector {
@@ -19,5 +20,7 @@
     top: 40px;
     background-color: #ffffff;
     padding: 8px;
+    width: 240px;
+
   }
 }

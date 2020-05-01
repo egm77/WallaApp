@@ -9,3 +9,46 @@
     border: $border;
     background-color: $background-color;
 }
+
+
+.btn {
+  height: 40px;
+  border-radius: 8px;
+  background-color: #6986ff;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 0 16px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  >:not(:last-child){
+    margin-right: 8px;
+  }
+
+  &--yellow {
+    background-color: #FBBD08;
+  }
+}
+
+input{
+  height: 40px;
+  border-radius: 8px;
+  border: solid 1px #dfecf1;
+  background-color: #f2f7fb;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  color: #52626f;
+  width: 100%;
+  padding: 0 20px;
+}
+

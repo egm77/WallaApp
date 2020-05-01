@@ -1,5 +1,9 @@
-<div class="ui label">
-  {{ primaryText | translate }}
-  <div class="detail">{{ secondaryText }}</div>
-  <i class="delete icon" (click)="onClose()"></i>
+<div class="pill">
+  <span>
+    {{ primaryText | translate }}:
+  </span>
+  <span class="pill__text">
+    {{ secondaryText }}
+  </span>
+  <i class="material-icons pill__close" (click)="onClose()">close</i>
 </div>

@@ -1,31 +1,28 @@
-<div class="list-cards">
-  <div class="ui cards centered ">
-    <ng-container *ngFor="let item of items">
-      <div class="card">
-        <img [src]="item.image" class="list-cards__img">
-        <div class="content">
-          <div class="header">{{ item.title }}</div>
-          <div class="list-cards__description">
-            {{ item.description }}
-          </div>
-        </div>
-        <div class="extra content">
-          <div>
-            <a>{{ item.email }}</a>
-          </div>
-        </div>
-        <div class="extra content">
-          <span class="right floated star" (click)="onFavClicked(item)">
-            <i class="star icon" [ngClass]="{'yellow': item.fav}" ></i>
-            {{ 'ITEM.favorite' | translate}}
-          </span>
-          <span class="header">
-            <i class="dollar sign icon"></i>
-            {{ item.price }}
-          </span>
+<div class="card-list">
+  <ng-container *ngFor="let item of items">
+    <div class="card">
+      <img [src]="item.image" class="card__img">
+      <div class="card__body">
+        <div class="card__body-title">{{ item.title }}</div>
+        <div class="card__body-description">
+          {{ item.description }}
         </div>
       </div>
-    </ng-container>
-  </div>
+      <div class="card__email">
+        <div>
+          <a>{{ item.email }}</a>
+        </div>
+      </div>
+      <div class="card__footer">
+        <span class="card__footer-price">
+          <i class="dollar sign icon"></i>
+          {{ item.price }}
+        </span>
+        <span class="car__footer-fav" (click)="onFavClicked(item)">
+          <i class="star icon" [ngClass]="{'yellow': item.fav}"></i>
+          {{ 'ITEM.favorite' | translate}}
+        </span>
+      </div>
+    </div>
+  </ng-container>
 </div>
-

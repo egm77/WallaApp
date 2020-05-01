@@ -8,12 +8,9 @@
     <app-sort-items [keys]="keys" [keySelected]="keySelected" [direction]="direction"
       (sortChanged)="onAction(actionsEnum.sort, $event)"></app-sort-items>
   </div>
-  <div class="ui labeled button item-menu__favorites" (click)="onAction(actionsEnum.favorites)">
-    <div class="ui yellow button">
-      <i class="star icon"></i> {{ 'MENU.favorites' | translate}}
-    </div>
-    <a class="ui basic yellow left pointing label item-menu__favorites-counter">
-      {{ favorites }}
-    </a>
-  </div>
+  <button class="btn btn--yellow" (click)="onAction(actionsEnum.favorites)">
+    <i class="material-icons">star</i>
+    <span>{{ 'MENU.favorites' | translate}}</span>
+    <span> <strong>({{ favorites }})</strong></span>
+  </button>
 </div>

@@ -24,6 +24,10 @@ export class FiltersComponent implements OnInit {
     this.filterAvailables = this.filters;
     if (!this.filtersApplied) {
       this.filtersApplied = [];
+    } else {
+      this.filtersApplied.forEach(
+        filtersApplied => this.disableFilter(filtersApplied)
+      );
     }
   }
 
@@ -38,8 +42,12 @@ export class FiltersComponent implements OnInit {
   onApplyFilter(filter: SelectedFilter): void {
     this.filtersApplied.push(filter);
     this.currentFilter = null;
-    this.filterAvailables.find(filterAvailables => filterAvailables.id === filter.type).disabled = true;
+    this.disableFilter(filter);
     this.filtersUpdate.emit(this.filtersApplied);
+  }
+
+  disableFilter(filter: SelectedFilter): void {
+    this.filterAvailables.find(filterAvailables => filterAvailables.id === filter.type).disabled = true;
   }
 
   onDeleteCurrentFilter(): void {

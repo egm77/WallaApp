@@ -1,6 +1,7 @@
 .filter__form {
   display: flex;
   flex-direction: column;
+  padding: 8px;
 
   &-input {
     margin-bottom: 8px;
@@ -8,9 +9,10 @@
 
   &-options {
     display: flex;
+    margin-top: 8px;
 
-    select {
-      margin-right: 8px;
+    button {
+      margin-left: 8px;
     }
   }
 }
