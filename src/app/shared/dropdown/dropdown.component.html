@@ -1,5 +1,5 @@
 <div class="dropdown" #toggleButton>
-  <input [value]="getSelectedTag() | translate" (click)="toggle()" class="dropdown-toggle" type="text"
+  <input class="input" [value]="getSelectedTag() | translate" (click)="toggle()" class="input dropdown-toggle" type="text"
     [placeholder]="placeholder | translate" readonly />
   <div class="dropdown-show" *ngIf="isOpen">
     <div class="drop-show__items">

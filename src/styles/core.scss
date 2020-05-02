@@ -12,7 +12,7 @@
 }
 
 @mixin btn {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   height: 40px;
   border-radius: 8px;
   background-color: #6986ff;
@@ -53,7 +53,7 @@
   width: 40px;
 }
 
-input {
+.input {
   height: 40px;
   border-radius: 8px;
   border: solid 1px #dfecf1;
@@ -82,4 +82,32 @@ input {
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
+}
+
+.spinner {
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  width: 32px;
+  height: 32px;
+  background-image: url("/assets/images/spinner.svg");
+}
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }

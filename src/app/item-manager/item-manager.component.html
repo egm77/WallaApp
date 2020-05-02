@@ -17,12 +17,18 @@
         </ng-container>
       </div>
       <ng-template #noItems>
-        <div class="item-manager__no-items">
-            <i class="settings icon"></i>
-            <div class="content">
+        <div class="item-manager__information">
+          <div class="title item-manager__information-title">
+            <i class="material-icons">search</i>
+            <span>
               {{ 'NO_RESULTS.title' | translate}}
-              <div class="sub header">{{ 'NO_RESULTS.description' | translate}}</div>
-            </div>
+            </span>
+          </div>
+          <div class="item-manager__information-subtitle">
+            <span>
+              {{ 'NO_RESULTS.description' | translate}}
+            </span>
+          </div>
         </div>
       </ng-template>
     </ng-container>
@@ -36,29 +42,26 @@
 
 
 <ng-template #loading>
-  <div class="item-manager__loader">
-    <div class="ui active big centered inline loader"></div>
+  <div class="item-manager__information">
+      <i class="spinner"></i>
   </div>
 </ng-template>
 
 <ng-template #error>
-  <div class="item-manager__error">
-
-    <div class="ui centered card">
-      <div class="content">
-        <div class="header">{{ 'ERROR.title' | translate }}</div>
-        <div class="description">
-          {{ errorMsg | translate }}
-        </div>
-      </div>
-      <div class="ui bottom attached button" (click)="getItems()">
-        <i class="refresh icon"></i>
-        {{ 'ERROR.retry' | translate }}
-      </div>
+  <div class="item-manager__information">
+    <div class="title item-manager__information-title">
+      <i class="material-icons">cancel</i>
+        {{ 'ERROR.title' | translate }}
     </div>
-
-    <span>
-
-    </span>
+    <div class="item-manager__information-subtitle">
+      <span>
+        {{ errorMsg | translate }}
+      </span>
+    </div>
+    <div>
+      <button class="btn item-manager__information-button" (click)="getItems()">
+        {{ 'ERROR.retry' | translate }}
+      </button>
+    </div>
   </div>
 </ng-template>

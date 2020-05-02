@@ -26,25 +26,25 @@
     padding: 16px;
   }
 
-  &__loader {
+  &__information {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+    flex-direction: column;
 
-  &__no-items {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    &-title {
+      display: flex;
+      align-items: center;
+    }
 
+    &-subtitle {
+      margin-top: 8px;
+      color: #889baa;
+    }
 
-  &__error {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    &-button {
+      margin-top: 8px;
+    }
   }
 }

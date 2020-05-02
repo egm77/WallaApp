@@ -14,6 +14,9 @@
     "title": "No se encontraron resultados",
     "description": "Intente cambiando los criterios de busqueda"
   },
+  "LOADING": {
+    "title": "Cargando..."
+  },
   "FAVORITES_MODAL" : {
     "title": "Items favoritos",
     "accept": "Aceptar",

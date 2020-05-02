@@ -68,7 +68,7 @@ export class ItemManagerComponent implements OnInit {
             this.errorMsg = null;
           },
           error: (err: HttpErrorResponse) => {
-            this.errorMsg = 'ERROR.DEFAULT';
+            this.errorMsg = 'ERROR.default';
           }
         }
       );

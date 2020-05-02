@@ -1,5 +1,5 @@
 <form class="filter__form" [formGroup]="filterForm">
-  <input type="text" [placeholder]="'FILTERS.placeholder' | translate" formControlName="text">
+  <input class="input" type="text" [placeholder]="'FILTERS.placeholder' | translate" formControlName="text">
   <div class="filter__form-options">
     <app-dropdown [items]='getFilterAvailables()' (selectItem)="onChangeKey($event)" [placeholder]="'FILTERS.filter'">
     </app-dropdown>
