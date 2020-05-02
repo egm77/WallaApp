@@ -1,13 +1,13 @@
+@import "src/styles/variables.scss";
+
 .sort-items {
   display: flex;
   align-items: center;
-  //max-width: 180px;
 
   &__label {
     padding-right: 8px;
     margin-right: 8px;
-    border-right: 1px solid #dcdddd;
-    font-weight: bolder;
-    color: #889baa;
+    border-right: $border;
+    color: $color-light-gray;
   }
 }

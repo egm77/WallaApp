@@ -53,4 +53,23 @@ describe('DropdownComponent', () => {
     component.selectedItem = item;
     expect(component.getSelectedTag()).toEqual(item.text);
   });
+
+  it('should set selectedItem', () => {
+    const defaultValue = typeEnum.title;
+
+    const items = [
+      {
+        id: typeEnum.title,
+        text: 'HEADER.title'
+      },
+     {
+        id: typeEnum.title,
+        text: 'HEADER.title'
+      }
+    ];
+    component.defaultValue = defaultValue;
+    component.items = items;
+    component.ngOnInit();
+    expect(component.selectedItem).toEqual(items[0]);
+  });
 });

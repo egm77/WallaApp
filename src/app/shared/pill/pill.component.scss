@@ -1,14 +1,16 @@
+@import "src/styles/variables.scss";
+
 .pill {
   height: 24px;
   border-radius: 4px;
   background-color: #f2f7fb;
-  border: solid 1px #dfecf1;
+  border: $border;
   font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 8px;
-  color: #52626f;
+  color: $color-dark-gray;
   font-weight: bold;
   margin: 8px;
 

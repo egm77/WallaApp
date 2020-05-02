@@ -1,4 +1,4 @@
-@import "src/styles/core.scss";
+@import "src/styles/mixins.scss";
 
 .dropdown {
   position: relative;
@@ -9,18 +9,18 @@
   }
 
   &-show {
-    @include card();
+    @include dropdown;
     padding: 8px 0;
     cursor: pointer;
     position: absolute;
     z-index: 100;
-    box-shadow: 0 8px 34px 0 rgba(82, 98, 111, 0.1);
+    width: 150px;
 
     &__item {
       padding: 8px;
 
       &:hover {
-        background-color: #F2F7F9;
+        background-color: $color-hover;
       }
     }
   }

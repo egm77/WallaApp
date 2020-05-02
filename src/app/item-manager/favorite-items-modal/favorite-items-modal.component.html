@@ -33,7 +33,11 @@
       </div>
     </ng-container>
     <ng-template #noItems>
-      <div class="favorite-items-modal__empty"> {{ getText() | translate }}</div>
+      <div class="favorite-items-modal__empty">
+        <span class="title">
+          {{ getText() | translate }}
+        </span>
+        </div>
     </ng-template>
     <div class="favorite-items-modal__footer">
       <button class="btn" (click)="onClose()">

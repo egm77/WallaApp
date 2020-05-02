@@ -1,6 +1,6 @@
 <div class="sort-items">
-  <span  class="sort-items__label">
-    Ordenar por
+  <span  class="lbl sort-items__label">
+      {{ 'SORT_ITEMS.title' | translate}}
   </span>
   <app-dropdown [items]='keys' (selectItem)="onChangeKey($event)" [defaultValue]="keySelected"
     [placeholder]="'SORT_ITEMS.order_by'">

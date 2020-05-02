@@ -47,6 +47,7 @@ export class FiltersComponent implements OnInit {
   }
 
   disableFilter(filter: SelectedFilter): void {
+    console.log('test', this.filterAvailables)
     this.filterAvailables.find(filterAvailables => filterAvailables.id === filter.type).disabled = true;
   }
 

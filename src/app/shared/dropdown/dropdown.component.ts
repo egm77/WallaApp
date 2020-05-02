@@ -20,7 +20,7 @@ export class DropdownComponent implements OnInit {
 
   ngOnInit() {
     if (this.defaultValue) {
-      this.selectedItem = this.items.find(item => item.id === this.defaultValue)
+      this.selectedItem = this.items.find(item => item.id === this.defaultValue);
     }
   }
 

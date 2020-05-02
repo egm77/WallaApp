@@ -19,7 +19,6 @@ export class SortItemsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('keySelected', this.keySelected)
   }
 
   onChangeKey(keySelected: typeEnum) {

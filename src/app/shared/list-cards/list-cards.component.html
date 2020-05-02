@@ -3,27 +3,29 @@
     <div class="card">
       <img [src]="item.image" class="card__img">
       <div class="card__body">
-        <div class="card__body-title">{{ item.title }}</div>
+        <div class="title card__body-title">{{ item.title }}</div>
         <div class="card__body-description">
           {{ item.description }}
         </div>
       </div>
       <div class="card__email">
-          <i class="material-icons">
-            email
-          </i>
+        <i class="material-icons">
+          email
+        </i>
         <span>
           {{ item.email }}
         </span>
       </div>
       <div class="card__footer">
-        <span class="card__footer-price">
+        <span class="title card__footer-price">
           <i class="material-icons">
             attach_money
           </i>
-          <span>
-            {{ item.price }}
-          </span>
+          <strong>
+            <span>
+              {{ item.price }}
+            </span>
+          </strong>
         </span>
         <span class="card__footer-fav" (click)="onFavClicked(item)">
           <i class="material-icons" [ngClass]="{'card__footer-fav--selected': item.fav}">

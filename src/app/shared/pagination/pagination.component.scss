@@ -1,4 +1,4 @@
-@import "src/styles/core.scss";
+@import "src/styles/mixins.scss";
 
 .pagination {
   @include card;
@@ -16,7 +16,7 @@
     width: 24px;
 
     &:not(:last-child) {
-      border-right: solid 1px #dfecf1;
+      border-right: $border;
     }
     &--disabled {
       opacity: 0.5;
@@ -25,8 +25,8 @@
     }
 
     &--selected {
-      background-color: #6986ff;
-      color: white;
+      background-color: $color-blue;
+      color: $color-white;
     }
   }
 }

@@ -1,4 +1,5 @@
-@import "src/styles/core.scss";
+@import "src/styles/mixins.scss";
+@import "src/styles/variables.scss";
 .favorite-items-modal {
   position: fixed;
   z-index: 1;
@@ -8,8 +9,7 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: $modal-backdrop;
 
   &__container {
     margin: auto;
@@ -23,6 +23,8 @@
   }
 
   &__footer {
+    border-top: $border;
+    padding-top: 8px;
     display: flex;
     justify-content: center;
     margin-top: auto;
@@ -32,9 +34,9 @@
     display: flex;
     align-items: center;
     padding-bottom: 8px;
-    border-bottom: solid 1px #dfecf1;
+    border-bottom: $border;
     margin-bottom: 8px;
-
+    min-height: 52px;
   }
 
   &__search {
@@ -46,7 +48,7 @@
   &__empty {
     display: flex;
     width: 100%;
-    height: 150px;
+    height: 100%;
     align-items: center;
     justify-content: center;
   }
@@ -55,7 +57,8 @@
     &-container {
       display: flex;
       overflow: auto;
-      height: 200px;
+      align-items: center;
+      height: 100%;
     }
 
     &-description {

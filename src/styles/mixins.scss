@@ -1,0 +1,17 @@
+
+@import "./variables.scss";
+
+@mixin card {
+  border-radius: $border-radius;
+  border: $border;
+  background-color: $color-white;
+  box-shadow: 0 2px 16px 0 #dfecf1;
+}
+
+
+@mixin dropdown {
+  border-radius: $border-radius;
+  border: $border;
+  background-color: $color-white;
+  box-shadow: 0 8px 34px 0 rgba(82, 98, 111, 0.1);
+}

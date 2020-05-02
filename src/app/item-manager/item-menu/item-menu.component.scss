@@ -1,11 +1,11 @@
-@import "src/styles/core.scss";
+@import "src/styles/variables.scss";
 
 .item-menu {
   height: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  background-color: white;
+  background-color: $color-white;
   padding: 0 32px;
 
   &__favorites {
@@ -24,6 +24,5 @@
 
   &__filters {
     flex: 1;
-    // margin-right: auto !important;
   }
 }

@@ -14,6 +14,9 @@
     "title": "No se encontraron resultados",
     "description": "Intente cambiando los criterios de busqueda"
   },
+  "LOADING": {
+    "title": "Cargando..."
+  },
   "FAVORITES_MODAL" : {
     "title": "Items favoritos",
     "accept": "Aceptar",
@@ -26,6 +29,7 @@
     "favorites": "Favoritos"
   },
   "FILTERS": {
+    "title": "Busqueda",
     "add_filters": "Añadir filtro",
     "filter": "Filtro",
     "placeholder": "Filtrar..."
@@ -34,6 +38,7 @@
     "favorite": "Favorito"
   },
   "SORT_ITEMS": {
+    "title": "Ordernar por",
     "order_by": "Ordernar por..."
   }
 }

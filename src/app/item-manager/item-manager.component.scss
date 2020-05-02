@@ -1,3 +1,5 @@
+@import "src/styles/variables.scss";
+
 .item-manager {
   display: flex;
   flex-direction: column;
@@ -9,7 +11,6 @@
     height: 100%;
     width: 100%;
     flex-direction: column;
-    // justify-content: center;
     overflow: auto;
 
     .item {
@@ -40,7 +41,7 @@
 
     &-subtitle {
       margin-top: 8px;
-      color: #889baa;
+      color: $color-light-gray;
     }
 
     &-button {
