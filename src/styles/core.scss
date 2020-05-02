@@ -1,17 +1,18 @@
 @import "./variables.scss";
 
 @mixin card(
-    $border-radius: $border-radius,
-    $border: $border-card,
-    $background-color: $color-card-background
+  $border-radius: $border-radius,
+  $border: $border-card,
+  $background-color: $color-card-background
 ) {
-    border-radius: $border-radius;
-    border: $border;
-    background-color: $background-color;
+  border-radius: $border-radius;
+  border: $border;
+  background-color: $background-color;
+  box-shadow: 0 2px 16px 0 #dfecf1;
 }
 
-
-.btn {
+@mixin btn {
+  font-family: 'Roboto';
   height: 40px;
   border-radius: 8px;
   background-color: #6986ff;
@@ -20,7 +21,6 @@
   justify-content: center;
   align-items: center;
   color: white;
-  padding: 0 16px;
   font-weight: bold;
   cursor: pointer;
 
@@ -28,16 +28,32 @@
     opacity: 0.9;
   }
 
-  >:not(:last-child){
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}
+
+.btn {
+  @include btn;
+  padding: 0 16px;
+
+  > :not(:last-child) {
     margin-right: 8px;
   }
 
   &--yellow {
-    background-color: #FBBD08;
+    background-color: #fbbd08;
   }
 }
 
-input{
+.btn-icon {
+  @include btn;
+  width: 40px;
+}
+
+input {
   height: 40px;
   border-radius: 8px;
   border: solid 1px #dfecf1;
@@ -48,7 +64,22 @@ input{
   line-height: 1.14;
   letter-spacing: normal;
   color: #52626f;
-  width: 100%;
   padding: 0 20px;
 }
 
+.lbl {
+  padding-right: 8px;
+  margin-right: 8px;
+  border-right: 1px solid #dcdddd;
+  font-weight: bolder;
+  color: #889baa;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}

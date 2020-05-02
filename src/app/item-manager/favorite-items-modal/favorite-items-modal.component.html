@@ -1,23 +1,29 @@
-<div class="active dimmer modals page transition ui">
-  <div class="ui standard test modal transition visible active" #modal>
-    <div class="header">
-      {{ 'FAVORITES_MODAL.title' | translate}}
+<div class="favorite-items-modal">
+  <div class="favorite-items-modal__container">
+    <div class="favorite-items-modal__header">
+      <span class="title">
+        {{ 'FAVORITES_MODAL.title' | translate}}
+      </span>
+      <ng-container *ngIf="items.length">
+        <div class="favorite-items-modal__search">
+          <span class="lbl">
+            <i class="material-icons">search</i>
+          </span>
+          <input type="text" [placeholder]="'FAVORITES_MODAL.search' | translate" (keyup)="onTextSearch($event)">
+        </div>
+      </ng-container>
     </div>
     <ng-container *ngIf="items.length; else noItems">
-      <div class="ui icon input favorite-items-modal__search">
-        <input type="text" [placeholder]="'FAVORITES_MODAL.search' | translate" (keyup)="onTextSearch($event)">
-        <i class="search icon"></i>
-      </div>
       <div class="favorite-items-modal__item-container">
         <ng-container *ngIf="itemsShown.length; else noItems">
           <ng-container *ngFor="let item of itemsShown">
             <div class="favorite-items-modal__item">
               <img [src]="item.image" class="favorite-items-modal__item-img">
               <div class="favorite-items-modal__item-description">
-                <div class="ui header">{{ item.title }}</div>
+                <div class="title">{{ item.title }}</div>
                 <div (click)="onDeleteFavItem(item)">
-                  <button class="ui icon button">
-                    <i class="trash alternate icon"></i>
+                  <button class="btn-icon">
+                    <i class="material-icons">delete</i>
                   </button>
                 </div>
               </div>
@@ -29,8 +35,8 @@
     <ng-template #noItems>
       <div class="favorite-items-modal__empty"> {{ getText() | translate }}</div>
     </ng-template>
-    <div class="actions">
-      <button class="ui primary button" (click)="onClose()">
+    <div class="favorite-items-modal__footer">
+      <button class="btn" (click)="onClose()">
         {{ 'FAVORITES_MODAL.accept' | translate}}
       </button>
     </div>

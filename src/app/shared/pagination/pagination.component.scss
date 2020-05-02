@@ -1,5 +1,32 @@
+@import "src/styles/core.scss";
+
 .pagination {
-  &--hidden {
-    visibility: hidden;
+  @include card;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .page {
+    cursor: pointer;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    width: 24px;
+
+    &:not(:last-child) {
+      border-right: solid 1px #dfecf1;
+    }
+    &--disabled {
+      opacity: 0.5;
+      cursor: none;
+      pointer-events: none;
+    }
+
+    &--selected {
+      background-color: #6986ff;
+      color: white;
+    }
   }
 }

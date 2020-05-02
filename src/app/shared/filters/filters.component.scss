@@ -2,8 +2,19 @@
 
 .filters {
   display: flex;
-  position: relative;
   align-items: center;
+
+  &__label {
+    padding-right: 8px;
+    margin-right: 8px;
+    border-right: 1px solid #dcdddd;
+    font-weight: bolder;
+    color: #889baa;
+  }
+
+  &__button {
+    position: relative;
+  }
 
   &__pills {
     display: flex;
@@ -20,7 +31,6 @@
     top: 40px;
     background-color: #ffffff;
     padding: 8px;
-    width: 240px;
-
+    box-shadow: 0 8px 34px 0 rgba(82, 98, 111, 0.1);
   }
 }

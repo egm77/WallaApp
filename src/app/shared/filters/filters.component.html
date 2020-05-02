@@ -1,9 +1,19 @@
 <div class="filters" #filterSelector>
+  <span class="filters__label">
+    Busqueda
+  </span>
   <ng-container *ngIf="isAnyEnabled()">
     <div class="filters__button">
       <button (click)="onAddFilter()" class="btn">
         {{ 'FILTERS.add_filters' | translate}}
       </button>
+      <ng-container *ngIf="currentFilter">
+        <div class="filters__selector">
+          <app-filter [filtersAvailables]="filterAvailables" (filterDeleted)="onDeleteCurrentFilter()"
+            (filterSelected)="onApplyFilter($event)">
+          </app-filter>
+        </div>
+      </ng-container>
     </div>
   </ng-container>
   <div class="filters__pills">
@@ -13,11 +23,4 @@
       </app-pill>
     </ng-container>
   </div>
-  <ng-container *ngIf="currentFilter">
-    <div class="filters__selector">
-      <app-filter [filtersAvailables]="filterAvailables" (filterDeleted)="onDeleteCurrentFilter()"
-        (filterSelected)="onApplyFilter($event)">
-      </app-filter>
-    </div>
-  </ng-container>
 </div>

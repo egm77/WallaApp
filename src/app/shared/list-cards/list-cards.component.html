@@ -9,18 +9,29 @@
         </div>
       </div>
       <div class="card__email">
-        <div>
-          <a>{{ item.email }}</a>
-        </div>
+          <i class="material-icons">
+            email
+          </i>
+        <span>
+          {{ item.email }}
+        </span>
       </div>
       <div class="card__footer">
         <span class="card__footer-price">
-          <i class="dollar sign icon"></i>
-          {{ item.price }}
+          <i class="material-icons">
+            attach_money
+          </i>
+          <span>
+            {{ item.price }}
+          </span>
         </span>
-        <span class="car__footer-fav" (click)="onFavClicked(item)">
-          <i class="star icon" [ngClass]="{'yellow': item.fav}"></i>
-          {{ 'ITEM.favorite' | translate}}
+        <span class="card__footer-fav" (click)="onFavClicked(item)">
+          <i class="material-icons" [ngClass]="{'card__footer-fav--selected': item.fav}">
+            star
+          </i>
+          <span>
+            {{ 'ITEM.favorite' | translate}}
+          </span>
         </span>
       </div>
     </div>

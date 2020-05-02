@@ -9,6 +9,7 @@
   padding: 0 32px;
 
   &__favorites {
+    flex: 0;
     &-counter {
       width: 40px;
       display: flex;
@@ -22,6 +23,7 @@
   }
 
   &__filters {
-    margin-right: auto !important;
+    flex: 1;
+    // margin-right: auto !important;
   }
 }

@@ -4,13 +4,15 @@
       (filtersUpdate)="onAction(actionsEnum.filter, $event)">
     </app-filters>
   </div>
+  <div class="item-menu__favorites">
+    <button class="btn btn--yellow" (click)="onAction(actionsEnum.favorites)">
+      <i class="material-icons">star</i>
+      <span>{{ 'MENU.favorites' | translate}}</span>
+      <span> <strong>({{ favorites }})</strong></span>
+    </button>
+  </div>
   <div>
     <app-sort-items [keys]="keys" [keySelected]="keySelected" [direction]="direction"
       (sortChanged)="onAction(actionsEnum.sort, $event)"></app-sort-items>
   </div>
-  <button class="btn btn--yellow" (click)="onAction(actionsEnum.favorites)">
-    <i class="material-icons">star</i>
-    <span>{{ 'MENU.favorites' | translate}}</span>
-    <span> <strong>({{ favorites }})</strong></span>
-  </button>
 </div>

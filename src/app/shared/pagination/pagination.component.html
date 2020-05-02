@@ -1,17 +1,14 @@
-<div class="ui pagination menu" [ngClass]=" {'pagination--hidden' : pageSelected === 1}">
-  <a class="icon item" (click)="onChangePage(pageSelected - 1)">
-    <i class="left chevron icon"></i>
-  </a>
-</div>
-<div class="ui pagination menu">
+<div class="pagination">
+  <span class="page" [ngClass]=" {'page--disabled' : pageSelected === 1}" (click)="onChangePage(pageSelected - 1)">
+    <i class="material-icons">keyboard_arrow_left</i>
+  </span>
   <ng-container *ngFor="let number of arrayPages">
-    <a class="icon item" (click)="onChangePage(number)" [ngClass]="{'active' : number === pageSelected}">
+    <span class="page" (click)="onChangePage(number)" [ngClass]="{'page--selected' : number === pageSelected}">
       {{number}}
-    </a>
+    </span>
   </ng-container>
-</div>
-<div class="ui pagination menu" [ngClass]=" {'pagination--hidden' : pageSelected === arrayPages.length }">
-  <a class="icon item" (click)="onChangePage(pageSelected + 1)">
-    <i class="right chevron icon"></i>
-  </a>
+    <span class="page" (click)="onChangePage(pageSelected + 1)"
+      [ngClass]=" {'page--disabled' : pageSelected === arrayPages.length }">
+      <i class="material-icons">keyboard_arrow_right</i>
+    </span>
 </div>

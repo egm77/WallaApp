@@ -1,10 +1,13 @@
 <div class="sort-items">
+  <span  class="sort-items__label">
+    Ordenar por
+  </span>
   <app-dropdown [items]='keys' (selectItem)="onChangeKey($event)" [defaultValue]="keySelected"
     [placeholder]="'SORT_ITEMS.order_by'">
   </app-dropdown>
   <ng-container *ngIf="keySelected">
-    <button class="btn" (click)="onToggleDirection()">
-      <i class="material-icons">{{ direction === 'ASC' ? 'arrow_drop_up' : 'arrow_drop_down' }}</i>
+    <button class="btn-icon" (click)="onToggleDirection()">
+      <i class="material-icons">{{ direction === 'ASC' ? 'arrow_upward' : 'arrow_downward' }}</i>
     </button>
   </ng-container>
 </div>

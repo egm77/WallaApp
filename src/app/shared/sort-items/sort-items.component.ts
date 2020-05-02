@@ -19,10 +19,7 @@ export class SortItemsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.keySelected)
-/*     if (this.keySelected == null) {
-      this.keySelected = typeEnum.undefined;
-    } */
+    console.log('keySelected', this.keySelected)
   }
 
   onChangeKey(keySelected: typeEnum) {
