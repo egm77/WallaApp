@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1588352541396,
+  "timestamp": 1588420424439,
   "index": "/WallaApp/index.html",
   "assetGroups": [
     {
@@ -8,17 +8,17 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "/WallaApp/3-es5.b8fa8e31c01590ebab5e.js",
-        "/WallaApp/4-es2015.233252f85906ba6467c6.js",
+        "/WallaApp/3-es5.2945879ba249ea8e1ad4.js",
+        "/WallaApp/4-es2015.6d12881c8c40268e1f2f.js",
         "/WallaApp/favicon.ico",
         "/WallaApp/index.html",
         "/WallaApp/main-es2015.12eaed9c0a1eb03f8493.js",
         "/WallaApp/main-es5.f2c7ab3dea2151113cac.js",
         "/WallaApp/polyfills-es2015.9c3f2c8c05f26e86793f.js",
         "/WallaApp/polyfills-es5.175e5155c14c50029182.js",
-        "/WallaApp/runtime-es2015.c265248aed077bb03fdb.js",
-        "/WallaApp/runtime-es5.1a3db6435b13559ad49f.js",
-        "/WallaApp/styles.25b233cbf2b14f0db7ef.css"
+        "/WallaApp/runtime-es2015.41a3ca166728f38b44bf.js",
+        "/WallaApp/runtime-es5.2903f152254304886ddb.js",
+        "/WallaApp/styles.89162c371e5b98ce41a6.css"
       ],
       "patterns": []
     },
@@ -70,8 +70,8 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/WallaApp/3-es5.b8fa8e31c01590ebab5e.js": "ea306bd7f0deb73ca35890cdacb51a7a7331ce50",
-    "/WallaApp/4-es2015.233252f85906ba6467c6.js": "5185cdcac069e0ed1480da0ff9dfb981803965dd",
+    "/WallaApp/3-es5.2945879ba249ea8e1ad4.js": "d61013957491042aeb95a9e4cd1de9e85bd6a6cf",
+    "/WallaApp/4-es2015.6d12881c8c40268e1f2f.js": "7e5060df03ef0370eb3421845f52118b5c0c1ce6",
     "/WallaApp/MaterialIcons-Regular.0509ab09c1b0d2200a41.woff2": "308ee3580a4a34bd230025d460762d53b5344efc",
     "/WallaApp/MaterialIcons-Regular.29b882f018fa6fe75fd3.woff": "951adc0458f2ead8495da26886b1f1284a716eaa",
     "/WallaApp/MaterialIcons-Regular.96c476804d7a788cc1c0.eot": "b28698262d8d8766c7c1bede47059ebea19a90a0",
@@ -110,14 +110,14 @@
     "/WallaApp/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/WallaApp/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/WallaApp/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/WallaApp/index.html": "f2ef60fd6250e83b7949b8ae9d7ee2e8b70cba94",
+    "/WallaApp/index.html": "41b58bc797cbdcc80cf98a68e9a77a9e5b6f97a6",
     "/WallaApp/main-es2015.12eaed9c0a1eb03f8493.js": "1d3da2eadb7eda842004c3bf3bf86dd366a67499",
     "/WallaApp/main-es5.f2c7ab3dea2151113cac.js": "7b04f21685a9a9b1487bcefdfef615092cfc7a43",
     "/WallaApp/polyfills-es2015.9c3f2c8c05f26e86793f.js": "e4be224553c5002677d7b21a2514f68bd4d9459d",
     "/WallaApp/polyfills-es5.175e5155c14c50029182.js": "f3ee8aaa8b27efbd1a763384ce913033604b1c0c",
-    "/WallaApp/runtime-es2015.c265248aed077bb03fdb.js": "a5dc01db210a723bec08932043109535ebfa60e5",
-    "/WallaApp/runtime-es5.1a3db6435b13559ad49f.js": "4020c3bba960a2d2120200879427e38b495c5f4f",
-    "/WallaApp/styles.25b233cbf2b14f0db7ef.css": "c14e2c594b44cf37e9ccec84e1ca99c72dd8925a"
+    "/WallaApp/runtime-es2015.41a3ca166728f38b44bf.js": "d488f811a4784cfc60fe21b09de6b2e4bc5950c5",
+    "/WallaApp/runtime-es5.2903f152254304886ddb.js": "0a16bcfe4a968b52f6987dba89b61d0a55778a61",
+    "/WallaApp/styles.89162c371e5b98ce41a6.css": "c619e5d472ffeee3a35f87fb214149fcbf6c2206"
   },
   "navigationUrls": [
     {
