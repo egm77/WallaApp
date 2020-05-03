@@ -14,13 +14,29 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
-    FiltersComponent, FilterComponent, PillComponent, ListCardsComponent, SortItemsComponent, PaginationComponent, DropdownComponent],
+    FiltersComponent,
+    FilterComponent,
+    PillComponent,
+    ListCardsComponent,
+    SortItemsComponent,
+    PaginationComponent,
+    DropdownComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     TranslateModule,
   ],
-  exports: [FiltersComponent, FilterComponent, PillComponent, ListCardsComponent, SortItemsComponent, PaginationComponent, TranslateModule],
+  exports: [
+    FiltersComponent,
+    FilterComponent,
+    PillComponent,
+    ListCardsComponent,
+    SortItemsComponent,
+    PaginationComponent,
+    TranslateModule,
+    FormsModule,
+    FormsModule
+  ],
 })
 export class SharedModule { }

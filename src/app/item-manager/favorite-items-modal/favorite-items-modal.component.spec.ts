@@ -82,8 +82,8 @@ describe('FavoriteItemsModalComponent', () => {
       }
     ];
     component.items = mockItems;
-    const event = { target: { value: 'Polaroid' } };
-    component.onTextSearch(event);
+    component.textSearch = 'Polaroid';
+    component.onTextSearch();
     tick(250);
     fixture.whenStable().then(() => {
       expect(component.itemsShown).toEqual([mockItems[1]]);
@@ -111,7 +111,7 @@ describe('FavoriteItemsModalComponent', () => {
     ];
     component.items = mockItems;
     const event = { target: { value: '' } };
-    component.onTextSearch(event);
+    component.onTextSearch();
     tick(250);
     fixture.whenStable().then(() => {
       expect(component.itemsShown).toEqual(mockItems);

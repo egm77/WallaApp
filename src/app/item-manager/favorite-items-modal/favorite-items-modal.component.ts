@@ -13,6 +13,7 @@ export class FavoriteItemsModalComponent implements OnInit {
   @Output() clickItem = new EventEmitter();
   itemsShown: Item[];
   timeout: any = null;
+  textSearch = '';
 
   ngOnInit() {
     this.itemsShown = this.items;
@@ -26,19 +27,20 @@ export class FavoriteItemsModalComponent implements OnInit {
     this.clickItem.emit(deleteFav);
     this.items = this.items.filter(
       item => item !== deleteFav
-    )
-    this.itemsShown = this.items;
+    );
+    this.filterItems();
 
   }
 
-  onTextSearch(event: any): void {
+  onTextSearch(): void {
     clearTimeout(this.timeout);
     this.timeout = setTimeout(() => {
-      this.filterItems(event.target.value);
+      this.filterItems();
     }, 250);
   }
 
-  filterItems(text: string): void {
+  filterItems(): void {
+    const text = this.textSearch;
     if (text !== '') {
       this.itemsShown = this.items.filter(item => item.title.toUpperCase().includes(text.toUpperCase()));
     } else {
